@@ -1,0 +1,44 @@
+import cv2
+import numpy as np
+import face_recognition
+# for elon musk
+elon=face_recognition.load_image_file('elonmusk.jpg')
+elon=cv2.cvtColor(elon,cv2.COLOR_BGR2RGB)
+elonfacloc=face_recognition.face_locations(elon)[0]
+elencod=face_recognition.face_encodings(elon)[0]
+#for billgates
+bill=face_recognition.load_image_file('billgates.jpg')
+bill=cv2.cvtColor(bill,cv2.COLOR_BGR2RGB)
+billfacloc=face_recognition.face_locations(bill)[0]
+billencode=face_recognition.face_encodings(bill)[0]
+# for warrenbuffe
+warren=face_recognition.load_image_file('warren.jpg')
+warren=cv2.cvtColor(warren,cv2.COLOR_BGR2RGB)
+warrenfacloc=face_recognition.face_locations(warren)[0]
+warrenencode=face_recognition.face_encodings(warren)[0]
+# for the test image
+#for test imag
+test=face_recognition.load_image_file('billgates.jpg')
+test=cv2.cvtColor(test,cv2.COLOR_BGR2RGB)
+testfacloc=face_recognition.face_locations(test)[0]
+testencode=face_recognition.face_encodings(test)[0]
+results=face_recognition.compare_faces([elencod],testencode)[0]
+if(face_recognition.compare_faces([elencod],testencode)[0]):
+    cv2.rectangle(test, (testfacloc[3], testfacloc[0]), (testfacloc[1], testfacloc[2]), (0, 0, 0),
+                  2)
+    cv2.imshow("elon",test)
+    print("Elon:Present")
+elif(face_recognition.compare_faces([billencode],testencode)[0]):
+    cv2.rectangle(test, (testfacloc[3], testfacloc[0]), (testfacloc[1], testfacloc[2]), (0, 0, 0),
+                  2)
+    cv2.imshow("elon",test)
+    print("BillGates:Present")
+elif(face_recognition.compare_faces([warrenencode],testencode)[0]):
+    cv2.rectangle(test, (testfacloc[3], testfacloc[0]), (testfacloc[1], testfacloc[2]), (0, 0, 0),
+                  2)
+    cv2.imshow("elon",test)
+    print("Warren:Present")
+else:
+    print("unknown")
+cv2.waitKey(0)
+cv2.destroyAllWindows()
