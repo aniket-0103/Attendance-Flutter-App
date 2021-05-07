@@ -31,7 +31,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           children: <Widget>[
             Container(
               height: 200.0,
-              child: Image.asset('images/logo.png'),
+              child: Image.asset('images/adduser.jpg'),
             ),
             SizedBox(
               height: 48.0,
