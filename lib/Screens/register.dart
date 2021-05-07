@@ -15,8 +15,16 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24.0),
+      body:Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image:AssetImage("images/user2.jpg"),
+            fit: BoxFit.cover,
+          ),
+        ),
+      //
+      //Padding(
+        //padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
