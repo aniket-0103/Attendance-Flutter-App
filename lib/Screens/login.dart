@@ -110,7 +110,31 @@ class _LoginScreenState extends State<LoginScreen> {
                       );
                       if (newuser != null) {
                         print("done");
-                        Navigator.pushNamed(context, '/database');
+
+                        // ignore: deprecated_member_use
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text("Logged in!!",
+                            textAlign: TextAlign.center
+                          ),
+                          width: 280.0,
+                          backgroundColor: Colors.green,
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8.0, // Inner padding for SnackBar content.
+                          ),
+                          behavior: SnackBarBehavior.floating,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                        ));
+
+                        Navigator.pushNamed(context, '/home');
+                      }
+
+                      else{
+                        // ignore: deprecated_member_use
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text("Incorrect Credentials"),
+                        ));
                       }
                       // } on FirebaseAuthException catch (e) {
                     //   if (e.code == 'user-not-found') {
